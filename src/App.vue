@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col items-center justify-center bg-gray-950 p-4">
-    <ImageUploader @image-uploaded="setImage" />
-    <OverlayCanvas v-if="imageUrl" :imageUrl="imageUrl" />
+    <!-- <ImageUploader @image-uploaded="setImage" /> -->
+    <OverlayCanvas />
   </div>
 </template>
 

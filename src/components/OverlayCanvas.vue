@@ -1,7 +1,15 @@
 <template>
     <div class="flex flex-col items-center h-auto bg-gray-950 p-4 text-gray-100">
+
+      <div class="p-4 border rounded-lg bg-white shadow text-gray-800  mb-4">
+        <input type="file" @change="onFileChange" accept="image/*" class="mb-2" />
+        <!-- <div v-if="imageUrl" class="mt-4">
+          <img :src="imageUrl" alt="Imagen cargada" class="max-w-full h-auto border" />
+        </div> -->
+      </div>
+      
       <!-- Selector y botón para añadir SVG -->
-      <div class="flex space-x-4 items-center mb-2">
+      <div class="flex space-x-4 items-center mb-2" v-if="imageUrl">
         <label class="font-semibold text-gray-200">Seleccionar cerda:</label>
         <select v-model="selectedSvg" class="p-2 border border-gray-600 rounded bg-gray-800 text-gray-100 shadow-lg">
           <option v-for="cerda in cerdas" :key="cerda" :value="cerda">
@@ -64,6 +72,15 @@
   const imageElement = ref(null); // Referencia al elemento de la imagen
   const imageCenter = ref({ x: 0, y: 0 }); // Centro de la imagen
   
+  const imageUrl = ref(null);
+  
+  const onFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      imageUrl.value = URL.createObjectURL(file);
+    }
+  };
+
   onMounted(() => {
     cerdas.value = [
       "/cerdas/A1.svg",

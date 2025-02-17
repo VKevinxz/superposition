@@ -8,7 +8,7 @@
   </template>
   
   <script setup>
-  import { ref, defineEmits } from "vue";
+  import { ref } from "vue";
   
   const imageUrl = ref(null);
   const emit = defineEmits(["image-uploaded"]); // Definir el evento
