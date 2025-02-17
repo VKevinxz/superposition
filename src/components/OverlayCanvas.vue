@@ -110,14 +110,26 @@
   };
   
   const addSvg = () => {
-    // Posicionamos el SVG en el centro de la imagen
+  const svgImage = new Image();
+  svgImage.src = selectedSvg.value;
+
+  svgImage.onload = () => {
+    // Calculamos el centro del SVG usando sus dimensiones
+    const svgCenterX = svgImage.width / 2;
+    const svgCenterY = svgImage.height / 2;
+
+    // Calculamos la posición inicial del SVG teniendo en cuenta el centro de la imagen SEM
+    const x = imageCenter.value.x - svgCenterX;
+    const y = imageCenter.value.y - svgCenterY;
+
     activeSvgs.value.push({
       url: selectedSvg.value,
-      x: imageCenter.value.x,
-      y: imageCenter.value.y,
+      x: x,
+      y: y,
       scale: 1,
     });
   };
+};
   
   const removeSvg = () => {
     if (selectedSvgObj.value) {
