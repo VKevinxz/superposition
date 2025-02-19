@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-auto bg-gray-950 p-4 text-gray-100">
     <!-- Modal de advertencia -->
-    <div v-if="showWarningModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div v-if="showWarningModal" class="fixed inset-0 bg-black opacity-100 flex items-center justify-center z-50">
       <div class="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
         <h2 class="text-xl font-semibold text-gray-100 mb-4">Advertencia</h2>
         <p class="text-gray-300 mb-6">
